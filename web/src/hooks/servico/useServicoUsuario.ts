@@ -13,7 +13,7 @@ export function useServicoUsuario(idUsuario : string | undefined) {
 
     return useQuery({
         queryFn: () => fetchdata(idUsuario),
-        queryKey: ["servico-id-data", idUsuario],
+        queryKey: ["servico-data", idUsuario],
         retry: 2
     });
 }

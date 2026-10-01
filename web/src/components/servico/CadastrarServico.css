@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.cadastrar-servico {
+    --color-primary: #7B0AB2;
+    --color-secondary: #C9FE0E;
+
+    --color-background: #FEFBE8;
+    --color-background-dark: #7B0AB2;
+
+    --color-text: #181018;
+    --color-text-light: #FEFBE8;
+    --color-text-muted: #7B0AB2;
+
+    --header-background: var(--color-primary);
+    --header-text: var(--color-text-light);
+    --header-logo: var(--color-secondary);
+    --header-hover: var(--color-secondary);
+
+    --color-border: rgba(254, 251, 232, 0.2);
+    --header-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+
+    --font-primary: 'Poppins', sans-serif;
+}
+
+.cadastrar-servico,
+.cadastrar-servico * {
+    box-sizing: border-box;
+}
+
+.cadastrar-servico {
+    font-family: var(--font-primary);
+}
+
+.cadastrar-servico__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(24, 16, 24, 0.72);
+
+    overflow-y: auto;
+}
+
+.cadastrar-servico__modal {
+    width: 100%;
+    max-width: 720px;
+    max-height: calc(100vh - 48px);
+
+    overflow-y: auto;
+
+    background: var(--color-background);
+    color: var(--color-text);
+
+    border: 1px solid rgba(123, 10, 178, 0.15);
+    border-radius: 12px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25),
+        0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.cadastrar-servico__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    padding: 28px 32px;
+
+    background: var(--color-primary);
+    color: var(--color-text-light);
+
+    border-radius: 12px 12px 0 0;
+}
+
+.cadastrar-servico__titulo {
+    margin: 0;
+
+    color: var(--color-secondary);
+
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.cadastrar-servico__descricao {
+    max-width: 520px;
+
+    margin: 8px 0 0;
+
+    color: rgba(254, 251, 232, 0.82);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.cadastrar-servico__fechar {
+    flex-shrink: 0;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(254, 251, 232, 0.25);
+    border-radius: 7px;
+
+    background: transparent;
+    color: var(--color-text-light);
+
+    font-family: var(--font-primary);
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.cadastrar-servico__fechar:hover:not(:disabled) {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    border-color: var(--color-secondary);
+}
+
+.cadastrar-servico__fechar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cadastrar-servico__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding: 30px 32px;
+}
+
+.cadastrar-servico__campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.cadastrar-servico__campo {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.cadastrar-servico__campo--full {
+    grid-column: 1 / -1;
+}
+
+.cadastrar-servico__campo label {
+    color: var(--color-text);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cadastrar-servico__campo input,
+.cadastrar-servico__campo textarea,
+.cadastrar-servico__campo select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid rgba(24, 16, 24, 0.18);
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #fffef5;
+    color: var(--color-text);
+
+    font-family: var(--font-primary);
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.cadastrar-servico__campo input,
+.cadastrar-servico__campo select {
+    height: 46px;
+}
+
+.cadastrar-servico__campo textarea {
+    min-height: 140px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+.cadastrar-servico__campo input::placeholder,
+.cadastrar-servico__campo textarea::placeholder {
+    color: rgba(24, 16, 24, 0.42);
+}
+
+.cadastrar-servico__campo input:focus,
+.cadastrar-servico__campo textarea:focus,
+.cadastrar-servico__campo select:focus {
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 3px rgba(123, 10, 178, 0.12);
+}
+
+.cadastrar-servico__campo input:disabled,
+.cadastrar-servico__campo textarea:disabled,
+.cadastrar-servico__campo select:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Preço */
+
+.cadastrar-servico__preco {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.cadastrar-servico__preco span {
+    position: absolute;
+    left: 14px;
+
+    color: var(--color-primary);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    pointer-events: none;
+}
+
+.cadastrar-servico__preco input {
+    padding-left: 38px;
+}
+
+/* Disponibilidade */
+
+.cadastrar-servico__disponibilidade {
+    grid-column: 1 / -1;
+
+    padding-top: 4px;
+}
+
+.cadastrar-servico__switch {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    width: fit-content;
+
+    cursor: pointer;
+}
+
+.cadastrar-servico__switch input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+}
+
+.cadastrar-servico__switch-slider {
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 24px;
+
+    border-radius: 20px;
+
+    background: rgba(24, 16, 24, 0.2);
+
+    transition: background-color 0.2s ease;
+}
+
+.cadastrar-servico__switch-slider::after {
+    content: "";
+
+    position: absolute;
+    top: 3px;
+    left: 3px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.2s ease;
+}
+
+.cadastrar-servico__switch input:checked
+    + .cadastrar-servico__switch-slider {
+    background: var(--color-primary);
+}
+
+.cadastrar-servico__switch input:checked
+    + .cadastrar-servico__switch-slider::after {
+    transform: translateX(20px);
+}
+
+.cadastrar-servico__switch input:focus-visible
+    + .cadastrar-servico__switch-slider {
+    outline: 3px solid rgba(201, 254, 14, 0.8);
+    outline-offset: 2px;
+}
+
+.cadastrar-servico__switch-text {
+    color: var(--color-text);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Erro */
+
+.cadastrar-servico__erro {
+    margin: 0;
+
+    padding: 12px 14px;
+
+    border: 1px solid rgba(174, 0, 0, 0.2);
+    border-radius: 7px;
+
+    background: rgba(174, 0, 0, 0.07);
+    color: #9b0000;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Ações */
+
+.cadastrar-servico__acoes {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 4px;
+
+    border-top: 1px solid rgba(24, 16, 24, 0.08);
+}
+
+.cadastrar-servico__botao {
+    min-height: 46px;
+
+    padding: 0 22px;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.cadastrar-servico__botao:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.cadastrar-servico__botao:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cadastrar-servico__botao--cancelar {
+    border-color: rgba(123, 10, 178, 0.25);
+
+    background: transparent;
+    color: var(--color-primary);
+}
+
+.cadastrar-servico__botao--cancelar:hover:not(:disabled) {
+    background: rgba(123, 10, 178, 0.06);
+}
+
+.cadastrar-servico__botao--salvar {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.cadastrar-servico__botao--salvar:hover:not(:disabled) {
+    background: #650895;
+}
+
+.cadastrar-servico__botao:focus-visible,
+.cadastrar-servico__fechar:focus-visible {
+    outline: 3px solid rgba(201, 254, 14, 0.9);
+    outline-offset: 2px;
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+    .cadastrar-servico__overlay {
+        align-items: flex-start;
+
+        padding: 12px;
+    }
+
+    .cadastrar-servico__modal {
+        max-height: calc(100vh - 24px);
+
+        border-radius: 10px;
+    }
+
+    .cadastrar-servico__header {
+        padding: 22px 18px;
+
+        border-radius: 10px 10px 0 0;
+    }
+
+    .cadastrar-servico__titulo {
+        font-size: 22px;
+    }
+
+    .cadastrar-servico__descricao {
+        font-size: 12px;
+    }
+
+    .cadastrar-servico__form {
+        padding: 22px 18px;
+    }
+
+    .cadastrar-servico__campos {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .cadastrar-servico__campo--full,
+    .cadastrar-servico__disponibilidade {
+        grid-column: auto;
+    }
+
+    .cadastrar-servico__acoes {
+        flex-direction: column-reverse;
+    }
+
+    .cadastrar-servico__botao {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cadastrar-servico__fechar,
+    .cadastrar-servico__campo input,
+    .cadastrar-servico__campo textarea,
+    .cadastrar-servico__campo select,
+    .cadastrar-servico__botao,
+    .cadastrar-servico__switch-slider,
+    .cadastrar-servico__switch-slider::after {
+        transition: none;
+    }
+}

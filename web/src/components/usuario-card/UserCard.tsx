@@ -1,16 +1,7 @@
 import { useState } from "react";
 import "./UserCard.css";
+import type { Usuario } from "../user/types";
 
-export interface Usuario {
-  id: number | string;
-  nomeCompleto: string;
-  email: string;
-  telefone: string;
-  area: string; // TypeArea vindo do backend
-  isDisponivel: boolean;
-  bio : string;
-  picture: string | null;
-}
 
 interface UserCardProps {
   usuario: Usuario;

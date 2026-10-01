@@ -1,5 +1,9 @@
 import Avatar from "./Avatar";
 import { formatarEnum } from "./utils";
+import { useUsuarioLogado } from "../../hooks/usuario/useUsuarioLogado";
+import { useState } from "react";
+import { EditarUsuario } from "../modal/EditUsuario";
+import { CadastrarServico } from "../servico/FormularioServico";
 import type { Usuario } from "./types";
 
 interface PerfilHeaderProps {
@@ -10,6 +14,11 @@ interface PerfilHeaderProps {
 }
 
 export default function PerfilHeader({ usuario, onSeguir, onContato }: PerfilHeaderProps) {
+
+  const { data: usuarioLogado } = useUsuarioLogado();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalServicoOpen, setIsModalServicoOpen] = useState(false);
+
 
   return (
     <header className="perfil-header">
@@ -36,18 +45,44 @@ export default function PerfilHeader({ usuario, onSeguir, onContato }: PerfilHea
         {usuario?.bio && <p className="perfil-header__bio">{usuario?.bio}</p>}
 
         {usuario && <div className="perfil-header__acoes">
-          <button
-            type="button"
-            className="perfil-btn perfil-btn--primario"
-            onClick={() => onContato?.(usuario)}
-          >
-            Entrar em contato
-          </button>
+          {usuario.id !== usuarioLogado?.id ?
+            <button
+              type="button"
+              className="perfil-btn perfil-btn--primario"
+              onClick={() => onContato?.(usuario)}
+            >
+              Entrar em contato
+            </button>
+            :
+            <div style={{gap: "5px",display:"flex"}}>
+
+              <button
+                type="button"
+                className="perfil-btn perfil-btn--primario"
+                onClick={() => setIsModalOpen(prev => !prev)}
+              >
+                Editar
+              </button>
+
+              <button
+                type="button"
+                className="perfil-btn perfil-btn--secundario"
+                onClick={() => setIsModalServicoOpen(prev => !prev)}
+              >
+                Serviços
+              </button>
+
+            </div>
+
+          }
           {onSeguir && (
             <button type="button" className="perfil-btn perfil-btn--secundario" onClick={onSeguir}>
               Seguir
             </button>
           )}
+
+          {isModalOpen && <EditarUsuario usuario={usuario} onClose={() => setIsModalOpen(prev => !prev)} />}
+          {isModalServicoOpen && <CadastrarServico idUsuario={usuario.id ?? ""} onClose={() => setIsModalServicoOpen(prev => !prev)}/>}
         </div>}
       </div>
     </header>

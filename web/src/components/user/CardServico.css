@@ -208,3 +208,168 @@
     transition: none;
   }
 }
+
+/* ========================================
+   MENU DE AÇÕES
+   ======================================== */
+
+.card-servico {
+  position: relative;
+}
+
+.card-servico__menu {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  z-index: 10;
+}
+
+.card-servico__menu-btn {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(123, 10, 178, 0.12);
+  border-radius: 7px;
+
+  background: var(--color-background);
+  color: var(--color-primary);
+
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card-servico__menu-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  border-color: var(--color-primary);
+
+  transform: translateY(-1px);
+}
+
+.card-servico__menu-btn:focus-visible {
+  outline: 3px solid rgba(201, 254, 14, 0.9);
+  outline-offset: 2px;
+}
+
+/* Dropdown */
+
+.card-servico__menu-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+
+  width: 150px;
+
+  padding: 6px;
+
+  border: 1px solid rgba(123, 10, 178, 0.12);
+  border-radius: 8px;
+
+  background: var(--color-background);
+
+  box-shadow:
+    0 12px 30px rgba(24, 16, 24, 0.16),
+    0 3px 10px rgba(24, 16, 24, 0.08);
+
+  animation: card-servico-menu-aparecer 0.15s ease-out;
+}
+
+.card-servico__menu-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 11px;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--color-text);
+
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.card-servico__menu-item span {
+  width: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-primary);
+}
+
+.card-servico__menu-item:hover {
+  background: rgba(123, 10, 178, 0.08);
+  color: var(--color-primary);
+}
+
+.card-servico__menu-item--excluir {
+  color: #a51d1d;
+}
+
+.card-servico__menu-item--excluir span {
+  color: #a51d1d;
+}
+
+.card-servico__menu-item--excluir:hover {
+  background: rgba(165, 29, 29, 0.08);
+  color: #a51d1d;
+}
+
+.card-servico__menu-item:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+@keyframes card-servico-menu-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-servico__menu-btn,
+  .card-servico__menu-item,
+  .card-servico__menu-dropdown {
+    animation: none;
+    transition: none;
+  }
+}

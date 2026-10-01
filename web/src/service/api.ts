@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "https://asteristico.onrender.com",
+    baseURL: "http://localhost:8080",
     withCredentials: true
 });
 

@@ -1,6 +1,6 @@
 import {useQuery} from "@tanstack/react-query";
 import { api } from "../../service/api";
-import type { Usuario } from "../../components/usuario-card/UserCard";
+import type { Usuario } from "../../components/user/types";
 
 
 const fetchdata = async (idUsuario : string | undefined) : Promise<Usuario> => {
@@ -13,7 +13,7 @@ export function useUsuarioDataId(idUsuario : string | undefined) {
 
     return useQuery({
         queryFn: () => fetchdata(idUsuario),
-        queryKey: ["usuario-id-data", idUsuario],
+        queryKey: ["usuario-data", idUsuario],
         retry: 2
     });
 }

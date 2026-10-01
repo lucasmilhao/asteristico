@@ -1,6 +1,6 @@
 import {useQuery} from "@tanstack/react-query";
 import { api } from "../../service/api";
-import type { Usuario } from "../../components/usuario-card/UserCard";
+import type { Usuario } from "../../components/user/types";
 
 const fetchdata = async () : Promise<Usuario> => {
     const response = await api.get(`/usuarios/me`);

@@ -1,0 +1,410 @@
+/* Usa apenas as variáveis globais do index.css:
+   --color-primary, --color-secondary, --color-text, --color-text-muted */
+
+.editar-usuario {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text);
+}
+
+.editar-usuario__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+    overflow-y: auto;
+
+    background: color-mix(in srgb, var(--color-text) 60%, transparent);
+    backdrop-filter: blur(4px);
+}
+
+.editar-usuario__modal {
+    width: 100%;
+    max-width: 640px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+
+    padding: 40px;
+
+    background: #fff;
+    color: var(--color-text);
+
+    border-radius: 20px;
+    box-shadow: 0 24px 64px color-mix(in srgb, var(--color-text) 25%, transparent);
+}
+
+/* Cabeçalho */
+
+.editar-usuario__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+
+    margin-bottom: 32px;
+}
+
+.editar-usuario__titulo {
+    margin: 0;
+
+    color: var(--color-primary);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.editar-usuario__descricao {
+    margin: 8px 0 0;
+
+    color: var(--color-text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.editar-usuario__fechar {
+    flex-shrink: 0;
+
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    color: var(--color-primary);
+
+    font-family: inherit;
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.editar-usuario__fechar:hover:not(:disabled) {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.editar-usuario__fechar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Formulário */
+
+.editar-usuario__form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Foto */
+
+.editar-usuario__foto {
+    padding-bottom: 28px;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+
+.editar-usuario__foto-label {
+    display: block;
+    margin-bottom: 14px;
+
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.editar-usuario__foto-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.editar-usuario__avatar {
+    flex-shrink: 0;
+
+    width: 88px;
+    height: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-secondary);
+
+    font-size: 30px;
+    font-weight: 700;
+
+    box-shadow: 0 0 0 4px #fff, 0 0 0 7px var(--color-secondary);
+}
+
+.editar-usuario__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.editar-usuario__foto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.editar-usuario__foto-info input {
+    max-width: 100%;
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.editar-usuario__foto-info input::file-selector-button {
+    margin-right: 12px;
+    padding: 8px 16px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    color: var(--color-primary);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.editar-usuario__foto-info input::file-selector-button:hover {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.editar-usuario__foto-info p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Campos */
+
+.editar-usuario__campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.editar-usuario__campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editar-usuario__campo--full {
+    grid-column: 1 / -1;
+}
+
+.editar-usuario__campo label {
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.editar-usuario__campo input,
+.editar-usuario__campo textarea,
+.editar-usuario__campo select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+
+    border: 1.5px solid color-mix(in srgb, var(--color-text) 15%, transparent);
+    border-radius: 12px;
+    outline: none;
+
+    background: #fff;
+    color: var(--color-text);
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editar-usuario__campo input,
+.editar-usuario__campo select {
+    height: 48px;
+}
+
+.editar-usuario__campo textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.editar-usuario__campo input:hover:not(:disabled),
+.editar-usuario__campo textarea:hover:not(:disabled),
+.editar-usuario__campo select:hover:not(:disabled) {
+    border-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+}
+
+.editar-usuario__campo input:focus,
+.editar-usuario__campo textarea:focus,
+.editar-usuario__campo select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 14%, transparent);
+}
+
+.editar-usuario__campo input:disabled,
+.editar-usuario__campo textarea:disabled,
+.editar-usuario__campo select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Erro */
+
+.editar-usuario__erro {
+    margin: 0;
+    padding: 12px 16px;
+
+    border-radius: 12px;
+    background: color-mix(in srgb, #d92d20 8%, transparent);
+    color: #b42318;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Ações */
+
+.editar-usuario__acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.editar-usuario__botao {
+    min-height: 48px;
+    padding: 0 28px;
+
+    border: 1.5px solid transparent;
+    border-radius: 999px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.editar-usuario__botao:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.editar-usuario__botao:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.editar-usuario__botao--cancelar {
+    background: transparent;
+    border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    color: var(--color-primary);
+}
+
+.editar-usuario__botao--cancelar:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+.editar-usuario__botao--salvar {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.editar-usuario__botao--salvar:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-primary) 85%, #000);
+}
+
+.editar-usuario__botao:focus-visible,
+.editar-usuario__fechar:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+    .editar-usuario__overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .editar-usuario__modal {
+        max-height: 92vh;
+        padding: 28px 20px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .editar-usuario__header {
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .editar-usuario__titulo {
+        font-size: 24px;
+    }
+
+    .editar-usuario__campos {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .editar-usuario__campo--full {
+        grid-column: auto;
+    }
+
+    .editar-usuario__foto-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .editar-usuario__acoes {
+        flex-direction: column-reverse;
+    }
+
+    .editar-usuario__botao {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .editar-usuario__fechar,
+    .editar-usuario__campo input,
+    .editar-usuario__campo textarea,
+    .editar-usuario__campo select,
+    .editar-usuario__botao,
+    .editar-usuario__foto-info input::file-selector-button {
+        transition: none;
+    }
+}

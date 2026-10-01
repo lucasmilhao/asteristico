@@ -32,7 +32,7 @@ interface CadastroForm {
     foto: File | null;
 }
 
-const areas: { value: TypeArea; label: string }[] = [
+export const areas: { value: TypeArea; label: string }[] = [
     { value: TypeArea.FOTOGRAFO, label: "Fotógrafo" },
     { value: TypeArea.CAMERA, label: "Câmera" },
     { value: TypeArea.PRODUTOR, label: "Produtor" },
