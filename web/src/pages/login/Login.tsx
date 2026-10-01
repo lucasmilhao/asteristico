@@ -7,16 +7,6 @@ export interface Credenciais {
   senha: string;
 }
 
-interface LoginProps {
-  /** Chamado ao enviar o formulário. A autenticação fica por sua conta. */
-  onSubmit?: (credenciais: Credenciais) => void;
-  isPending?: boolean;
-  isError?: boolean;
-  errorMessage?: string;
-  esqueciSenhaHref?: string;
-  cadastroHref?: string;
-}
-
 function IconeEmail() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="login__icone">

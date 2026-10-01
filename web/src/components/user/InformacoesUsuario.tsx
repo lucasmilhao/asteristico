@@ -2,19 +2,19 @@ import { formatarEnum } from "./utils";
 import type { Usuario } from "./types";
 
 interface InformacoesUsuarioProps {
-  usuario: Usuario;
+  usuario: Usuario | undefined;
 }
 
 // Apenas dados públicos. Nada de senha ou campos internos do sistema.
 export default function InformacoesUsuario({ usuario }: InformacoesUsuarioProps) {
   const itens = [
-    { rotulo: "Área", valor: formatarEnum(usuario.area), href: undefined },
-    usuario.localizacao && { rotulo: "Localização", valor: usuario.localizacao, href: undefined },
-    { rotulo: "Email", valor: usuario.email, href: `mailto:${usuario.email}` },
+    { rotulo: "Área", valor: formatarEnum(usuario?.area ?? ""), href: undefined },
+    usuario?.localizacao && { rotulo: "Localização", valor: usuario?.localizacao, href: undefined },
+    { rotulo: "Email", valor: usuario?.email, href: `mailto:${usuario?.email}` },
     {
       rotulo: "Telefone",
-      valor: usuario.telefone,
-      href: `tel:${usuario.telefone.replace(/[^\d+]/g, "")}`,
+      valor: usuario?.telefone,
+      href: `tel:${usuario?.telefone.replace(/[^\d+]/g, "")}`,
     },
   ].filter(Boolean) as { rotulo: string; valor: string; href?: string }[];
 

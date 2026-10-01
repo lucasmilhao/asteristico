@@ -1,6 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
 import { api } from "../../service/api";
-import type { Usuario } from "../../components/usuario-card/UserCard";
 import type { Servico } from "../../components/user/types";
 
 

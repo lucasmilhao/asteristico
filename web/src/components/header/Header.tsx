@@ -3,7 +3,7 @@ import "./Header.css";
 import { useUsuarioLogado } from "../../hooks/usuario/useUsuarioLogado";
 
 function Header() {
-  const {data : usuarioLogado, isPending} = useUsuarioLogado();
+  const {data : usuarioLogado} = useUsuarioLogado();
 
   return (
     <header className="header">

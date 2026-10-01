@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PerfilHeader from "./PerfilHeader";
 import InformacoesUsuario from "./InformacoesUsuario";
 import ListaServicos from "./ListaServicos";
-import type { Servico, Usuario } from "./types";
+import type { Usuario } from "./types";
 import "./PerfilUsuario.css";
 import { useUsuarioDataId } from "../../hooks/usuario/useUsuarioDataId";
 import { useServicoUsuario } from "../../hooks/servico/useServicoUsuario";
