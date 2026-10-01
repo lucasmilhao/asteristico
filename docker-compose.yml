@@ -6,7 +6,10 @@ services:
 
     ports:
       - "8080:8080"
-      
+
+    env_file:
+      - .env
+
     restart: unless-stopped
 
     extra_hosts:
