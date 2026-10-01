@@ -87,6 +87,8 @@ public class AuthService {
         u.setTelefone(request.telefone());
         u.setArea(request.area());
         u.setIsDisponivel(request.isDisponivel());
+        u.setBio(request.bio());
+        u.setPicture(request.picture());
 
         Credential cred = new Credential();
         cred.setExternalId(u.getEmail());

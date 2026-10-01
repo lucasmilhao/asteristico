@@ -39,8 +39,14 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private TypeArea area;
 
-    @Column(name = "id_disponivel")
+    @Column(name = "is_disponivel")
     private Boolean isDisponivel;
+
+    @Column(length = 255)
+    private String picture;
+
+    @Column(length = 512)
+    private String bio;
 
     @OneToMany(mappedBy = "usuario")
     private List<Credential> credentials = new ArrayList<>();

@@ -1,0 +1,571 @@
+.sobre {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--foreground);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.sobre-hero {
+    position: relative;
+
+    min-height: 560px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        radial-gradient(
+            circle at 78% 40%,
+            rgba(29, 95, 214, 0.15),
+            transparent 32%
+        ),
+        var(--background);
+}
+
+.sobre-hero-content {
+    width: min(1150px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    position: relative;
+    z-index: 2;
+}
+
+.sobre-eyebrow,
+.sobre-section-label {
+    display: inline-block;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    color: var(--color-primary);
+
+    margin-bottom: 18px;
+}
+
+.sobre-hero h1 {
+    margin: 0;
+
+    max-width: 780px;
+
+    font-size: clamp(48px, 7vw, 82px);
+
+    line-height: 0.97;
+
+    letter-spacing: -0.05em;
+
+    font-weight: 800;
+}
+
+.sobre-hero h1 span {
+    color: var(--color-primary);
+}
+
+.sobre-hero p {
+    max-width: 650px;
+
+    margin: 30px 0 0;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   DECORAÇÃO HERO
+========================================= */
+
+.sobre-hero-decoration {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: 5%;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.film-frame {
+    position: absolute;
+
+    border: 1px solid var(--color-secondary);
+
+    transform: rotate(-12deg);
+}
+
+.frame-one {
+    width: 330px;
+    height: 230px;
+
+    top: 70px;
+    left: 50px;
+}
+
+.frame-two {
+    width: 330px;
+    height: 230px;
+
+    top: 95px;
+    left: 80px;
+
+    border-color: var(--color-primary);
+
+    transform: rotate(8deg);
+}
+
+.frame-three {
+    width: 170px;
+    height: 120px;
+
+    top: 150px;
+    left: 130px;
+
+    background: var(--color-secondary);
+
+    border-color: var(--color-primary);
+
+    transform: rotate(-2deg);
+}
+
+.camera-symbol {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 64px;
+
+    color: var(--color-primary);
+
+    text-shadow:
+        0 0 50px rgba(29, 95, 214, 0.35);
+}
+
+
+/* =========================================
+   SEÇÕES
+========================================= */
+
+.sobre-section {
+    width: min(1150px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding: 110px 0;
+}
+
+.sobre-intro-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    margin-top: 15px;
+}
+
+.sobre-intro h2,
+.sobre-section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+}
+
+.sobre-intro h2 span,
+.sobre-section-heading h2 span {
+    color: var(--color-primary);
+}
+
+.sobre-intro-grid p {
+    margin: 0 0 22px;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   PROPÓSITO
+========================================= */
+
+.sobre-purpose {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 130px 24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(29, 95, 214, 0.08),
+            transparent
+        );
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.purpose-content {
+    width: min(900px, 100%);
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.purpose-content h2 {
+    margin: 0;
+
+    font-size: clamp(42px, 6vw, 70px);
+
+    line-height: 1;
+
+    letter-spacing: -0.045em;
+}
+
+.purpose-content h2 span {
+    color: var(--color-primary);
+}
+
+.purpose-content p {
+    max-width: 650px;
+
+    margin: 30px auto 0;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   PROFISSIONAIS
+========================================= */
+
+.sobre-section-heading {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    margin-bottom: 55px;
+}
+
+.sobre-section-heading > p {
+    max-width: 390px;
+
+    margin: 0;
+
+    line-height: 1.7;
+}
+
+.profissionais-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.profissional-card {
+    min-height: 230px;
+
+    padding: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 16px;
+
+    background: rgba(218, 218, 218, 0.295);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.profissional-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--color-primary);
+
+    background: var(--color-secondary);
+
+    color: var(--color-primary);
+}
+
+.profissional-card > span {
+    color: var(--color-primary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+.profissional-card h3 {
+    margin: 55px 0 10px;
+
+    font-size: 21px;
+}
+
+.profissional-card p {
+    margin: 0;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   COMO FUNCIONA
+========================================= */
+
+.como-funciona {
+    padding-top: 30px;
+}
+
+.steps {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.step {
+    display: grid;
+
+    grid-template-columns: 65px 1fr;
+
+    gap: 25px;
+
+    padding: 35px 30px 35px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.step:nth-child(even) {
+    padding-left: 30px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.step-number {
+    color: var(--color-primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+}
+
+.step h3 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+}
+
+.step p {
+    max-width: 430px;
+
+    margin: 0;
+
+    line-height: 1.65;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.sobre-cta {
+    padding: 130px 24px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(29, 95, 214, 0.12),
+            transparent 45%
+        );
+}
+
+.sobre-cta h2 {
+    margin: 0;
+
+    font-size: clamp(40px, 6vw, 68px);
+
+    line-height: 1;
+
+    letter-spacing: -0.045em;
+}
+
+.sobre-cta p {
+    max-width: 550px;
+
+    margin: 25px auto 30px;
+
+    line-height: 1.7;
+}
+
+.sobre-cta-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--color-primary);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.sobre-cta-button:hover {
+    transform: translateY(-2px);
+
+    background: var(--color-secondary);
+
+    color: var(--color-primary);
+}
+
+.sobre-cta-button span {
+    font-size: 18px;
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 950px) {
+
+    .sobre-hero-decoration {
+        opacity: 0.3;
+
+        right: -100px;
+    }
+
+    .sobre-intro-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .profissionais-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .sobre-section-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 25px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .sobre-hero {
+        min-height: 500px;
+    }
+
+    .sobre-hero-content,
+    .sobre-section {
+        width: calc(100% - 32px);
+    }
+
+    .sobre-hero-decoration {
+        display: none;
+    }
+
+    .sobre-hero h1 {
+        font-size: 48px;
+    }
+
+    .sobre-hero p {
+        font-size: 16px;
+    }
+
+    .sobre-section {
+        padding: 75px 0;
+    }
+
+    .profissionais-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        padding-right: 0;
+    }
+
+    .step:nth-child(even) {
+        padding-left: 0;
+
+        border-left: none;
+    }
+
+    .sobre-purpose {
+        padding: 90px 16px;
+    }
+
+    .sobre-cta {
+        padding: 90px 16px;
+    }
+}

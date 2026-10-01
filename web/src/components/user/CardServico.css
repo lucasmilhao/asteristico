@@ -1,0 +1,210 @@
+.card-servico {
+  --cs-line: color-mix(in srgb, var(--color-text) 10%, transparent);
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--cs-line);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--color-text) 6%, transparent);
+}
+
+.card-servico *,
+.card-servico *::before,
+.card-servico *::after {
+  box-sizing: border-box;
+}
+
+/* 1. Profissional */
+.card-servico__autor {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  align-self: flex-start;
+  max-width: 100%;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.card-servico__autor-texto {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card-servico__autor-nome {
+  overflow: hidden;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-servico__autor-user {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.card-servico__autor:hover .card-servico__autor-nome {
+  color: var(--color-primary);
+}
+
+/* 2 e 3. Título e descrição */
+.card-servico__conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-servico__titulo {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.card-servico__descricao {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+/* 4. Preço e tipo de contratação */
+.card-servico__comercial {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  border-top: 1px solid var(--cs-line);
+}
+
+.card-servico__preco {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.card-servico__tipo {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* 5. Disponibilidade */
+.card-servico__status {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.card-servico__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.card-servico__status--on .card-servico__dot {
+  background: var(--color-secondary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-secondary) 30%, transparent);
+}
+
+.card-servico__status--off {
+  color: var(--color-text-muted);
+}
+
+.card-servico__status--off .card-servico__dot {
+  border: 1.5px solid var(--color-text-muted);
+}
+
+.card-servico[data-disponivel="false"] .card-servico__preco {
+  color: var(--color-text-muted);
+}
+
+/* 6. Ações */
+.card-servico__acoes {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.card-servico__btn {
+  flex: 1;
+  min-height: 44px;
+  padding: 0 1rem;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.card-servico__btn--primario {
+  color: var(--color-secondary);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.card-servico__btn--primario:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--color-primary) 88%, var(--color-text));
+}
+
+.card-servico__btn--primario:disabled {
+  color: var(--color-text-muted);
+  background: transparent;
+  border-color: var(--cs-line);
+  cursor: not-allowed;
+}
+
+.card-servico__btn--secundario {
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--cs-line);
+}
+
+.card-servico__btn--secundario:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.card-servico__autor:focus-visible,
+.card-servico__btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .card-servico {
+    padding: 1.25rem;
+  }
+
+  .card-servico__acoes {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-servico__btn {
+    transition: none;
+  }
+}

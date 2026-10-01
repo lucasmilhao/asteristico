@@ -43,6 +43,8 @@ public class LocalAuthService implements AuthenticationProvider<LoginRequestDTO>
             u.getNomeCompleto(),
             u.getTelefone(),
             u.getArea(),
+            u.getPicture(),
+            u.getBio(),
             u.getIsDisponivel()
         );
     }

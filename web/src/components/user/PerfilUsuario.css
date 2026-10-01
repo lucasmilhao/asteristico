@@ -1,0 +1,315 @@
+.perfil {
+  --pf-line: color-mix(in srgb, var(--color-text) 10%, transparent);
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text);
+}
+
+.perfil *,
+.perfil *::before,
+.perfil *::after {
+  box-sizing: border-box;
+}
+
+.perfil-mensagem {
+  padding: 4rem 1.5rem;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--pf-line);
+}
+
+.perfil-header__avatar {
+  flex: none;
+  padding: 4px;
+  border: 2px solid var(--pf-line);
+  border-radius: 50%;
+}
+
+.perfil-header__avatar--on {
+  border-color: var(--color-secondary);
+}
+
+.perfil-header__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.perfil-header__nome {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.perfil-header__username {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.perfil-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.perfil-header__local {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.perfil-header__bio {
+  max-width: 60ch;
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.perfil-header__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.perfil-badge {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+  border-radius: 999px;
+}
+
+.perfil-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.perfil-status__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.perfil-status--on .perfil-status__dot {
+  background: var(--color-secondary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-secondary) 30%, transparent);
+}
+
+.perfil-status--off {
+  color: var(--color-text-muted);
+}
+
+.perfil-status--off .perfil-status__dot {
+  border: 1.5px solid var(--color-text-muted);
+}
+
+/* ---------- Botões ---------- */
+
+.perfil-btn {
+  min-height: 44px;
+  padding: 0 1.5rem;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.perfil-voltar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: transparent;
+    color: var(--foreground);
+
+    font-size: 24px;
+    cursor: pointer;
+
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.perfil-voltar:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary);
+}
+
+.perfil-btn--primario {
+  color: var(--color-secondary);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.perfil-btn--primario:hover {
+  background: color-mix(in srgb, var(--color-primary) 88%, var(--color-text));
+}
+
+.perfil-btn--secundario {
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--pf-line);
+}
+
+.perfil-btn--secundario:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.perfil-btn:focus-visible,
+.perfil-info a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ---------- Seções ---------- */
+
+.perfil-secao {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.perfil-secao__cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.perfil-secao__titulo {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.perfil-secao__contagem {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Informações ---------- */
+
+.perfil-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem 2rem;
+  margin: 0;
+}
+
+.perfil-info__item dt {
+  margin-bottom: 0.25rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.perfil-info__item dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.perfil-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.perfil-info a:hover {
+  color: var(--color-primary);
+}
+
+/* ---------- Grade de serviços ---------- */
+
+.perfil-grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.perfil-vazio {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  border: 1px dashed var(--pf-line);
+  border-radius: 16px;
+}
+
+/* ---------- Tablet / mobile ---------- */
+
+@media (max-width: 720px) {
+  .perfil {
+    gap: 2.5rem;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .perfil-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .perfil-header__nome {
+    font-size: 1.625rem;
+  }
+
+  .perfil-header__acoes {
+    width: 100%;
+  }
+
+  .perfil-header__acoes .perfil-btn {
+    flex: 1;
+  }
+
+  .perfil-grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .perfil-btn {
+    transition: none;
+  }
+}

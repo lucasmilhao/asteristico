@@ -18,4 +18,8 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
+    public Usuario getPorId(String idUsuario) {
+        return usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException());
+    }
+
 }

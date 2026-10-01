@@ -10,5 +10,7 @@ public record AuthenticatedUserDTO(
     String nomeCompleto,
     String telefone,
     TypeArea area,
+    String picture,
+    String bio,
     Boolean isDisponivel
 ) {}
