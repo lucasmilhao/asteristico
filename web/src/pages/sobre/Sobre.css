@@ -21,11 +21,9 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 
     background:
-        radial-gradient(
-            circle at 78% 40%,
+        radial-gradient(circle at 78% 40%,
             rgba(29, 95, 214, 0.15),
-            transparent 32%
-        ),
+            transparent 32%),
         var(--background);
 }
 
@@ -215,11 +213,9 @@
     padding: 130px 24px;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             rgba(29, 95, 214, 0.08),
-            transparent
-        );
+            transparent);
 
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -274,7 +270,7 @@
     margin-bottom: 55px;
 }
 
-.sobre-section-heading > p {
+.sobre-section-heading>p {
     max-width: 390px;
 
     margin: 0;
@@ -316,9 +312,14 @@
     background: var(--color-secondary);
 
     color: var(--color-primary);
+
+    ::selection {
+        background: var(--color-primary);
+        color: var(--color-secondary);
+    }
 }
 
-.profissional-card > span {
+.profissional-card>span {
     color: var(--color-primary);
 
     font-size: 12px;
@@ -417,11 +418,9 @@
     border-top: 1px solid rgba(255, 255, 255, 0.07);
 
     background:
-        radial-gradient(
-            circle at center,
+        radial-gradient(circle at center,
             rgba(29, 95, 214, 0.12),
-            transparent 45%
-        );
+            transparent 45%);
 }
 
 .sobre-cta h2 {

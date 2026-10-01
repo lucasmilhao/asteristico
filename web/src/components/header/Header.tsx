@@ -37,7 +37,7 @@ function Header() {
             Entrar
           </Link>
 
-          <Link to="/cadastro" className="header__button">
+          <Link to="/register" className="header__button">
             Começar
           </Link>
         </div>}

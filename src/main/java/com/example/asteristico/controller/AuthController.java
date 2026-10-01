@@ -42,7 +42,7 @@ public class AuthController {
             @RequestParam TypeArea area,
             @RequestParam(required = false) MultipartFile foto,
             HttpServletResponse response) {
-        String url = uploadService.subirArquivo(foto);
+        String url = foto == null ? "" : uploadService.subirArquivo(foto);
 
         UsuarioRequestDTO request = new UsuarioRequestDTO(nomeCompleto, email, telefone, area, true, url, "", senha);
 
