@@ -72,7 +72,7 @@ export default function Home() {
                     <div className="decoration-circle circle-three" />
 
                     <div className="hero-symbol">
-                        ✦
+                        *
                     </div>
                 </div>
             </section>
