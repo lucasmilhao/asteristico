@@ -1,0 +1,262 @@
+/*
+  Tokens usados (definidos no index.css):
+  --color-primary, --color-secondary, --color-text, --color-text-muted
+  Tokens novos sugeridos (veja o bloco no final deste arquivo):
+  --color-surface, --color-on-primary
+  Nenhuma cor é escrita diretamente aqui; bordas e sombras são derivadas
+  das variáveis com color-mix().
+*/
+
+.user-card {
+  --uc-line: color-mix(in srgb, var(--color-text) 10%, transparent);
+  --uc-shadow: color-mix(in srgb, var(--color-text) 7%, transparent);
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--uc-line);
+  border-radius: 20px;
+  box-shadow: 0 2px 12px var(--uc-shadow);
+}
+
+.user-card *,
+.user-card *::before,
+.user-card *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Status ---------- */
+
+.user-card__status {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.user-card__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.user-card__status--on {
+  color: var(--color-text);
+}
+
+.user-card__status--on .user-card__dot {
+  background: var(--color-secondary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-secondary) 30%, transparent);
+}
+
+.user-card__status--off {
+  color: var(--color-text-muted);
+}
+
+.user-card__status--off .user-card__dot {
+  background: transparent;
+  border: 1.5px solid var(--color-text-muted);
+}
+
+/* ---------- Foto / avatar ---------- */
+
+.user-card__avatar {
+  align-self: center;
+  width: 128px;
+  height: 128px;
+  padding: 4px;
+  border-radius: 50%;
+  border: 2px solid var(--uc-line);
+}
+
+/* Anel verde-limão quando a pessoa está disponível */
+.user-card[data-disponivel="true"] .user-card__avatar {
+  border-color: var(--color-secondary);
+}
+
+.user-card__photo,
+.user-card__initials {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-card__photo {
+  object-fit: cover;
+}
+
+.user-card__initials {
+  display: grid;
+  place-items: center;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+}
+
+/* ---------- Nome e área ---------- */
+
+.user-card__identity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.user-card__name {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.user-card__area {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+  border-radius: 999px;
+}
+
+/*
+  Futuro: uma cor por TypeArea, sem mexer no DTO.
+  .user-card__area[data-area="DESIGN"] { ... }
+*/
+
+/* ---------- Contato ---------- */
+
+.user-card__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.user-card__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  max-width: 100%;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.user-card__contact span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-card__contact:hover {
+  color: var(--color-primary);
+}
+
+.user-card__icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Ação ---------- */
+
+.user-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 1rem 0 0;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--uc-line);
+  cursor: pointer;
+}
+
+.user-card__arrow {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.user-card__cta:hover .user-card__arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Foco visível ---------- */
+
+.user-card__cta:focus-visible,
+.user-card__contact:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 420px) {
+  .user-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .user-card__avatar {
+    width: 112px;
+    height: 112px;
+  }
+
+  .user-card__name {
+    font-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .user-card__arrow,
+  .user-card__contact {
+    transition: none;
+  }
+}
+
+/*
+  ---- Adicione ao index.css ----
+  Poppins (no <head> do index.html ou via @import):
+  https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap
+
+  :root {
+    --color-surface: <branco do card>;
+    --color-on-primary: <texto claro sobre o roxo>;
+  }
+*/

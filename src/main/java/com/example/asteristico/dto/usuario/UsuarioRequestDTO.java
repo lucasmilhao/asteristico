@@ -24,8 +24,10 @@ public record UsuarioRequestDTO(
 
         Boolean isDisponivel,
 
-        String senha,
+        String picture,
 
-        String picture
+        String bio,
+
+        String senha
         
         ) {}
