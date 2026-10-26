@@ -52,11 +52,11 @@ public class AuthService {
 
     public <T> LoginResponseDTO login(
             TypeProvider provider,
-            T credential) {
+            T request) {
 
         AuthenticationProvider<T> authenticationProvider = providerFactory.get(provider);
 
-        AuthenticatedUserDTO authenticated = authenticationProvider.authenticate(credential);
+        AuthenticatedUserDTO authenticated = authenticationProvider.authenticate(request);
 
         Usuario usuario = buscarOuCriarUsuario(authenticated);
 
@@ -87,6 +87,7 @@ public class AuthService {
         u.setTelefone(request.telefone());
         u.setArea(request.area());
         u.setIsDisponivel(request.isDisponivel());
+        u.setPicture(request.picture());
 
         Credential cred = new Credential();
         cred.setExternalId(u.getEmail());
@@ -154,6 +155,7 @@ public class AuthService {
         usuario.setTelefone(authenticated.telefone());
         usuario.setArea(authenticated.area());
         usuario.setIsDisponivel(authenticated.isDisponivel());
+        usuario.setPicture(authenticated.picture());
 
         usuarioRepository.save(usuario);
 
