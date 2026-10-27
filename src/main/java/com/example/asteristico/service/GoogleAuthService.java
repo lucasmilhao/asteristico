@@ -60,8 +60,9 @@ public class GoogleAuthService implements AuthenticationProvider<String> {
                 nome,
                 "",
                 null,
+                picture,
                 null,
-                picture
+                true
                 );
                     
         } catch (GeneralSecurityException e) {

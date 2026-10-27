@@ -24,6 +24,33 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+.home__decoration {
+    position: absolute;
+
+    left: 0px;
+    bottom: -20px;
+
+    width: 350px;
+    height: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    transform: rotate(-15deg);
+}
+
+.home__decoration span {
+    color: var(--color-secondary);
+
+    font-size: 20rem;
+    font-weight: 800;
+    line-height: 1;
+}
 .home-hero-content {
     width: min(1150px, calc(100% - 48px));
     margin: 0 auto;

@@ -32,7 +32,7 @@ export default function Home() {
                     <span className="home-eyebrow">
                         ASTERÍSTICO
                     </span>
-
+                    
                     <h1>
                         Encontre pessoas.
                         <br />
@@ -71,8 +71,8 @@ export default function Home() {
                     <div className="decoration-circle circle-two" />
                     <div className="decoration-circle circle-three" />
 
-                    <div className="hero-symbol">
-                        *
+                    <div className="home__decoration">
+                        <span>*</span>
                     </div>
                 </div>
             </section>

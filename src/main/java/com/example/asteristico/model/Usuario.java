@@ -51,5 +51,4 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Credential> credentials = new ArrayList<>();
 
-    private String picture;
 }

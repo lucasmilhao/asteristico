@@ -113,10 +113,6 @@ function Chat() {
 
     return (
         <div className="chat-container">
-            <header className="chat-header">
-                <h1>Asterístico AI</h1>
-                <span>Assistente de inteligência artificial</span>
-            </header>
 
             <main className="chat-messages">
                 {mensagens.map((mensagem) => (

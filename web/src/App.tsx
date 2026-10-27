@@ -7,6 +7,7 @@ import Sobre from './pages/sobre/Sobre'
 import Contato from './pages/contato/Contato'
 import Login from './pages/login/Login'
 import Cadastro from './pages/cadastro/Cadastro'
+import Chat from './pages/chat/Chat'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/sobre' Component={Sobre}></Route>
         <Route path='/contato' Component={Contato}></Route>
         <Route path='/user/:id' Component={PerfilUsuario}></Route>
+        <Route path='/chat' Component={Chat}></Route>
       </Route>
       <Route path='/login' Component={Login}/>
       <Route path='/register' Component={Cadastro}/>
